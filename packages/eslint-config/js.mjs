@@ -46,7 +46,8 @@ const jsConfig = [
         es6: true,
         browser: true,
         node: true,
-        jest: true
+        jest: true,
+        fetch: true
       }
     },
     plugins: {
@@ -177,7 +178,7 @@ const jsConfig = [
       'import/no-extraneous-dependencies': 'error',
       'import/no-mutable-exports': 'error',
       'import/no-default-export': 'error',
-      'import/no-duplicates': 'error',
+      'import/no-duplicates': ['error', {considerQueryString: true}],
       'import/no-self-import': 'error',
       'import/no-named-as-default': 'error',
       'import/no-named-as-default-member': 'error',
@@ -257,6 +258,9 @@ const jsConfig = [
       'sonar/stateful-regex': 'error',
       'sonar/unused-named-groups': 'error',
       'sonar/xpath': 'error',
+      'sonarjs/todo-tag': 'off',
+      'sonarjs/fixme-tag': 'off',
+      'sonarjs/prefer-read-only-props': 'off',
       'sonarjs/cognitive-complexity': ['error', MAX_COGNITIVE_COMPLEXITY],
       'security/detect-buffer-noassert': 'error',
       'security/detect-child-process': 'error',
@@ -276,7 +280,7 @@ const jsConfig = [
         'error',
         {
           pattern:
-            '^((TODO|FIXME|BUG)\\(\\w+-\\d+\\)|(NOTE|COMMENT|HACK|INFO)(\\(\\w+-\\d+\\))?)\\: (.*)$'
+            '^((TODO|FIXME|BUG): \\(\\w+-\\d+\\)|(NOTE|COMMENT|HACK|INFO): (\\(\\w+-\\d+\\))?)\\ (.*)$'
         }
       ]
     },

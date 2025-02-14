@@ -15,8 +15,13 @@ const compat = new FlatCompat({
 const nextConfig = [
   ...reactConfig,
   ...compat.config({
-    extends: ['next'],
+    extends: [
+      'plugin:@next/next/recommended',
+      'plugin:@next/next/core-web-vitals'
+    ],
     rules: {
+      'no-undef': 0,
+      'react/react-in-jsx-scope': 0,
       '@next/next/no-img-element': 0
     }
   })

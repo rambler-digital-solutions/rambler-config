@@ -28,6 +28,7 @@ const tsConfig = tseslint.config(
       importPlugin.flatConfigs.typescript
     ],
     rules: {
+      'no-undef': 'off',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
@@ -80,6 +81,15 @@ const tsConfig = tseslint.config(
   {
     files: ['**/*.js'],
     extends: [tseslint.configs.disableTypeChecked]
+  },
+  {
+    files: ['**/*.d.ts'],
+    rules: {
+      'import/no-default-export': 'off',
+      'no-undef': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off'
+    }
   }
 )
 
